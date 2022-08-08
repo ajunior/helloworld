@@ -12,8 +12,9 @@ services:
       - '50432:5432'
     expose:
       - '5432'
-#    volumes:
-#      - "./database/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql"
+    volumes:
+      - "./db/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql"
+      - "./postgres:/var/lib/postgresql/data"
 
   hw_app:
     build:
